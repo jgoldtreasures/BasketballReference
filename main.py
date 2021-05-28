@@ -16,43 +16,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix, precision_score
 
 
-def get_stats(url):
-    #     page = requests.get(url)
-    #     doc = lh.fromstring(page.content)
-    #     tr_elements = doc.xpath('//tr')
-    #
-    #     col = []
-    #     i = 0
-    #
-    #     for t in tr_elements[0]:
-    #         i += 1
-    #         name = t.text_content()
-    #         col.append((name, []))
-    #
-    #     for j in range(1, len(tr_elements)):
-    #         T = tr_elements[j]
-    #
-    #         i = 0
-    #         for t in T.iterchildren():
-    #             data = t.text_content()
-    #             if i > 0:
-    #                 try:
-    #                     data = int(data)
-    #                 except:
-    #                     pass
-    #             col[i][1].append(data)
-    #             i += 1
-    #     Dict = {title: column for (title, column) in col}
-    #     print(Dict)
-    #     df = pd.DataFrame(Dict)
-
-    html = requests.get(url).content
-    df_list = pd.read_html(html)
-    df = df_list[-1]
-
-    return df.loc[df['Season'] == 'Career']
-
-
 def get_stats1(url):
     # print(url)
     html = requests.get(url).content
@@ -214,5 +177,5 @@ def main():
     # print(precision_score(df['Hall of Fame'], ypred))
 
 
-# main()
+main()
 remove_nan()
